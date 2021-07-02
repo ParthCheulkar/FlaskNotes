@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Update Task</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/form.css') }}"
+/>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>Update task</h1>
+    <div class="form">
+        <form action="/update/{{task.id}}" method="POST">
+            <label
+            class="mdc-text-field mdc-text-field--outlined mdc-text-field--no-label"
+          >
+            <span class="mdc-notched-outline">
+              <span class="mdc-notched-outline__leading"></span>
+              <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input
+              class="mdc-text-field__input"
+              placeholder="Enter title"
+              type="text"
+              aria-label="Label"
+              name="title"
+              id="title"
+              value="{{task.title}}"
+            />
+          </label>
+          <label
+            class="
+              mdc-text-field
+              mdc-text-field--outlined
+              mdc-text-field--textarea
+              mdc-text-field--no-label
+            "
+          >
+            <span class="mdc-notched-outline">
+              <span class="mdc-notched-outline__leading"></span>
+              <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <span class="mdc-text-field__resizer">
+              <textarea
+                placeholder="Enter content here"
+                class="mdc-text-field__input"
+                rows="8"
+                cols="40"
+                aria-label="Label"
+                name="content"
+                id="content"
+               
+              >{{task.content}}</textarea>
+            </span>
+          </label>
+          <input type="submit" value="Update Task" id="button" />
+        </form>
+    </div>
+</div>
+{% endblock %}

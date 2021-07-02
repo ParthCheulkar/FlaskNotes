@@ -1,0 +1,89 @@
+{% extends 'base.html' %} {% block head %}
+<title>Flask Notes</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/form.css') }}"
+/>
+{% endblock %} {% block body %}
+<div class="content">
+  {% if tasks|length < 1 %}
+  <h4>No notes created.Create one below!!!</h4>
+  {% else %}
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Added</th>
+      <th>Actions</th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+      <td>{{ task.title }}</td>
+      <!-- <td>{{ task.content }}</td> -->
+      <td>{{ task.date_created.date() }}</td>
+      <td>
+        <a href="/delete/{{task.id}}">Delete</a>
+        <br />
+        <a href="/update/{{task.id}}">Update</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+  <div class="input-form">
+    <form action="/" method="POST">
+      <h1>New Task</h1>
+      <label
+        class="mdc-text-field mdc-text-field--outlined mdc-text-field--no-label"
+      >
+        <span class="mdc-notched-outline">
+          <span class="mdc-notched-outline__leading"></span>
+          <span class="mdc-notched-outline__trailing"></span>
+        </span>
+        <input
+          class="mdc-text-field__input"
+          placeholder="Enter title"
+          type="text"
+          aria-label="Label"
+          name="title"
+          id="title"
+        />
+      </label>
+      <label
+        class="
+          mdc-text-field
+          mdc-text-field--outlined
+          mdc-text-field--textarea
+          mdc-text-field--no-label
+        "
+      >
+        <span class="mdc-notched-outline">
+          <span class="mdc-notched-outline__leading"></span>
+          <span class="mdc-notched-outline__trailing"></span>
+        </span>
+        <span class="mdc-text-field__resizer">
+          <textarea
+            placeholder="Enter content here"
+            class="mdc-text-field__input"
+            rows="8"
+            cols="40"
+            aria-label="Label"
+            name="content"
+            id="content"
+          ></textarea>
+        </span>
+      </label>
+      <input type="submit" value="Add Task" id="button" />
+    </form>
+  </div>
+
+  <!-- <br>
+    <br>
+    <h1>Update task</h1>
+    <div class="form">
+        <form action="/update/{{tasks.id}}" method="POST">
+            <input type="text" id="content" name="content" value="{{tasks.content}}">
+            <input type="submit" value="update Task">
+        </form>
+    </div> -->
+</div>
+{% endblock %}

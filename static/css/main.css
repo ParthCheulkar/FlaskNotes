@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    padding: 0;    
+    background-color: #383737 ;
+}
+.mdc-top-app-bar{
+    top: 0;
+    background-color: rgb(44, 43, 43);
+    box-shadow: 0 0 20px black;
+}
+.mdc-top-app-bar__title{
+    font-size: 1.8rem;
+    color: #f7913e;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+footer{
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(44, 43, 43);;
+
+}
+.footer-content{
+    background-color: rgb(44, 43, 43);;
+    justify-content: center;
+    padding: 10px 100px;
+    margin-left: 40%;
+}
+.footer-text{
+    color: white;
+}
